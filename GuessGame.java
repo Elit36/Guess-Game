@@ -52,41 +52,59 @@ public class GuessGame {
 		while(true) {			
 				System.out.println("\nGuess the number between 0 - 10");				
 					try {
+						boolean eb=true;		
 						System.out.print("Player 1: ");
-						gp1 = p1.input(); 
+						gp1 = p1.input();
+						if(gp1>10)
+						while(eb){
+							if(gp1>10) {
+								System.out.printf("Player 1 input error!");
+								System.out.print("\nTry again: ");
+								gp1 = p1.input();
+									if(gp1>10)
+										continue;
+									else
+										eb=false;
+									if(gp1<=10) {
+										break;
+									}
+								} 	
+						  }
+						eb=true; //Rset
 						System.out.print("Player 2: ");
 						gp2 = p2.input();
+						if(gp2>10)
+							while(eb){
+							if(gp2>10) {
+								System.out.printf("Player 2 input error!");
+								System.out.print("\nTry again: ");
+								gp2 = p2.input();
+									if(gp2>10)
+										continue;
+									else
+										eb=false;
+							 	}
+							}
+						eb=true; //Rset
 						System.out.print("Player 3: ");
 						gp3 = p3.input();
+						if(gp3>10)
+							while(eb){
+							if(gp3>10) {
+								System.out.printf("Player 3 input error!");
+								System.out.print("\nTry again: ");
+								gp3 = p3.input();
+									if(gp3>10)
+										continue;
+									else
+										eb=false;
+							    }	
+						   }
 					}catch(Exception e) {
 						System.out.println("Retry!");
 						continue;
-					}
-										
-		boolean eb=true;		
-		 while(eb) {
-			if(gp1>10) {
-				System.out.printf("Player 1 input error!");
-				System.out.print("\nTry again: ");
-				gp1 = p1.input();
-					if(gp1>10)
-						continue;
-			} if(gp2>10) {
-				System.out.printf("Player 2 input error!");
-				System.out.print("\nTry again: ");
-				gp2 = p2.input();
-					if(gp2>10)
-						continue;
-			} if(gp3>10) {
-				System.out.printf("Player 3 input error!");
-				System.out.print("\nTry again: ");
-				gp3 = p3.input();
-					if(gp3>10)
-						continue;
-			}// Error management
-			eb=false;
-		}
-			
+					}	
+					
 		if(gp1==tn)
 			bp1 = true;
 		if(gp2==tn)
@@ -97,12 +115,12 @@ public class GuessGame {
 		if(bp1 || bp2 || bp3) {
 			System.out.println("Correct Answer: "+tn);
 				if(bp1&&bp2&&bp3) {
-					System.out.println("\nWe have 3 Winners");
+					System.out.println("\n\"We have 3 Winners\"");
 					System.out.println("Player 1 and Player 2 and Player 3 are Winners");
 					System.exit(0);
 				}
 				if((bp1&&bp2) || (bp2&&bp3) ||(bp3&&bp1)) {
-						System.out.println("\nWe have 2 winners ");				
+						System.out.println("\n\"We have 2 winners\" ");				
 					if((bp1&&bp2)==true)
 						System.out.println("Player 1 and Player 2 is Winner");			
 					else if((bp2&&bp3)==true)
@@ -110,7 +128,7 @@ public class GuessGame {
 					else if(bp1&&bp3==true)
 						System.out.println("Player 1 and Player 3 is Winner");
 				} else {
-						System.out.println("\nWe have only 1 winner");
+						System.out.println("\n\"We have only 1 winner\"");
 					if(bp1==true)
 						System.out.println("Player 1 is Winner ");
 					else if(bp2==true)
@@ -134,8 +152,36 @@ public class GuessGame {
 			if((bp1==false)&&(bp2==false)&&(bp3==false)) {
 				System.out.println("\nNo Player got right Try again!");
 				System.out.println("Correct Answer: "+tn);
+				//System.gc();
 				startGame();
 				}						
 	}//loop	
 	}// startGame method
 } //Class
+
+//------------------------------------------------------------------------------------------------
+
+/**		boolean eb=true;		
+while(eb) {
+if(gp1>10) {
+		System.out.printf("Player 1 input error!");
+		System.out.print("\nTry again: ");
+		gp1 = p1.input();
+			if(gp1>10)
+				continue;
+	} if(gp2>10) {
+		System.out.printf("Player 2 input error!");
+		System.out.print("\nTry again: ");
+		gp2 = p2.input();
+			if(gp2>10)
+				continue;
+	} if(gp3>10) {
+		System.out.printf("Player 3 input error!");
+		System.out.print("\nTry again: ");
+		gp3 = p3.input();
+			if(gp3>10)
+				continue;
+	}// Error management
+	eb=false;
+} // While-loop 
+*/	
