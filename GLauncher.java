@@ -6,8 +6,6 @@ public class GLauncher {
 		wallpaper wp = new wallpaper();
 		
 	   	wp.wall();
-	   	gg.menu();
-	   		   
-		
+	   	gg.menu();	   	
 	}
 }
